@@ -1,11 +1,17 @@
+
 // EXERCISE 7
 // Return an array with a bank account object with the lowest balance but not broke ( balance > 0 )
 // Array example: bankAccounts in /data/data.js
 // getClientWithLeastBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
 export function getClientWithLeastBalance(array) {
-  // Your code goes here...
-
+  let min = array[0];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].balance < min.balance && array[i].balance > 0) {
+      min = array[i];
+    }
+  }
+  return min;
 }
 
 // === TEST YOURSELF ===

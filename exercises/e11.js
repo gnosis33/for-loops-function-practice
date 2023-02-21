@@ -1,3 +1,4 @@
+
 // EXERCISE 11
 // Return an array of withdrawal sums of each bank account.
 // If the account doesn't have withdrawals, it's sum is 0.
@@ -5,8 +6,17 @@
 // getAllWithdrawals(bankAccounts) => [3432, 0, 43242.34, 0, 23432]
 
 export function getAllWithdrawals(array) {
-  // Your code goes here...
-
+  let sums = [];
+  for (let i = 0; i < array.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < array[i].transactions.length; j++) {
+      if (array[i].transactions[j].type === 'withdrawal') {
+        sum += array[i].transactions[j].amount;
+      }
+    }
+    sums.push(sum);
+  }
+  return sums;
 }
 
 // === TEST YOURSELF ===
