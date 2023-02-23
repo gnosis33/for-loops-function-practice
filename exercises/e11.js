@@ -5,18 +5,22 @@
 // Array example: bankAccounts in /data/data.js
 // getAllWithdrawals(bankAccounts) => [3432, 0, 43242.34, 0, 23432]
 
+
 export function getAllWithdrawals(array) {
-  let sums = [];
+  let sum = 0;
+  let allWithdrawals = [];
   for (let i = 0; i < array.length; i++) {
-    let sum = 0;
-    for (let j = 0; j < array[i].transactions.length; j++) {
-      if (array[i].transactions[j].type === 'withdrawal') {
-        sum += array[i].transactions[j].amount;
+    if (array[i].withdrawals.length === 0) {
+      allWithdrawals.push(0);
+    } else {
+      for (let j = 0; j < array[i].withdrawals.length; j++) {
+        sum += array[i].withdrawals[j];
       }
+      allWithdrawals.push(sum);
+      sum = 0;
     }
-    sums.push(sum);
   }
-  return sums;
+  return allWithdrawals;
 }
 
 // === TEST YOURSELF ===

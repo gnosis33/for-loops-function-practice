@@ -4,20 +4,24 @@
 // Array example: bankAccounts in /data/data.js
 // getAllAccountsWithSumsOfDepositsLess2000(bankAccounts) => [3432, 43242.34, 23432]
 
+
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
-  let newArray = [];
+  let sum = 0;
+  let allAccounts = [];
   for (let i = 0; i < array.length; i++) {
-    let sum = 0;
-    for (let j = 0; j < array[i].transactions.length; j++) {
-      if (array[i].transactions[j].type === 'deposit') {
-        sum += array[i].transactions[j].amount;
+    if (array[i].deposits.length === 0) {
+      allAccounts.push(array[i]);
+    } else {
+      for (let j = 0; j < array[i].deposits.length; j++) {
+        sum += array[i].deposits[j];
       }
-    }
-    if (sum < 2000) {
-      newArray.push(array[i]);
+      if (sum < 2000) {
+        allAccounts.push(array[i]);
+      }
+      sum = 0;
     }
   }
-  return newArray;
+  return allAccounts;
 }
 
 

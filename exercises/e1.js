@@ -4,9 +4,14 @@
 // getFirstTenNumbers() => [1, 2, 3, ... , 10]
 
 export function getFirstTenNumbers() {
-  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let array = [];
+  for(let i = 1; i <= 10; i++) {
+    //concatenate the numbers to array
+    array = array.push(i);
+  }
   return array;
 }
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-1"

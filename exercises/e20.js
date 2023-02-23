@@ -5,20 +5,25 @@
 // separateNamesWithAFromRest(["jon", "alice", "andrew", "mark", "jimmy"]) -> [["alice", "andrew", "mark"], ["jon", "jimmy"]]
 // NOTE: You MUST use double/nested FOR loop to solve this exercise. The array.includes() method is NOT allowed.
 
+
 export function separateNamesWithAFromRest(array) {
-  let newArray = [];
-  let newArray2 = [];
-  let newArray3 = [];
+  let aNames = [];
+  let notANames = [];
+  let finalArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i].includes('a')) {
-      newArray.push(array[i]);
-    } else {
-      newArray2.push(array[i]);
+    for (let j = 0; j < array[i].name.length; j++) {
+      if (array[i].name[j] === "a") {
+        aNames.push(array[i]);
+      } else {
+        notANames.push(array[i]);
+      }
     }
   }
-  newArray3.push(newArray, newArray2);
-  return newArray3;
+  finalArray.push(aNames);
+  finalArray.push(notANames);
+  return finalArray;
 }
+
 
 
 // === TEST YOURSELF ===
