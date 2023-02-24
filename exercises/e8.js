@@ -10,13 +10,13 @@ it with the test file but the file type of e8.js is a module so i cannot import 
 info into the file to test it. */
 
 export function getClientWithGreatestBalance(array) {
-  let max = array[i];
+  let max = null;
   for (let i = 0; i < array.length; i++) {
-    if (array[i].balance > max.balance) {
+    if (max === null || array[i].balance > max.balance) {
       max = array[i];
     }
   }
-  return max;
+  return [max];
 }
 
 

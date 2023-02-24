@@ -10,7 +10,7 @@ export function getAllWithdrawals(array) {
   let sum = 0;
   let allWithdrawals = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i].withdrawals.length === 0) {
+    if (!array[i].withdrawals || array[i].withdrawals.length === 0) {
       allWithdrawals.push(0);
     } else {
       for (let j = 0; j < array[i].withdrawals.length; j++) {

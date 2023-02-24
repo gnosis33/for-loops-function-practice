@@ -6,8 +6,8 @@
 export function getFirstTenNumbers() {
   let array = [];
   for(let i = 1; i <= 10; i++) {
-    //concatenate the numbers to array
-    array = array.push(i);
+    //add the numbers to array without concat method
+    array.push(i);
   }
   return array;
 }
